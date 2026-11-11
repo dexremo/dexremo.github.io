@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software &amp; Simulation — DexRemo</title>
+<meta name="description" content="Driver, teleoperation, learning code and simulation models for the DexRemo hand.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <div class="wrap page-head">
+    <h1>Software</h1>
+    <p class="lead">Software arrives in layers, so that every hardware release is usable on the day it ships: first a driver that moves the hand, then teleoperation and force display, then the learning stack.</p>
+    <nav class="toc" aria-label="On this page">
+      <span>On this page</span>
+      <a href="#packages">Packages</a><a href="#sim">Simulation models</a><a href="#policy">Learning setup</a>
+    </nav>
+  </div>
+
+  <section id="packages">
+    <div class="wrap">
+      <div class="head"><h2>Packages</h2><p class="lead">All code and simulation models are released under the MIT licence.</p></div>
+      <ul class="dl">
+        <li><div><strong>Minimal driver · R1</strong><small>Servo ID setup, zero calibration, joint read and write, first-motion demo</small></div><a data-link="sdk">Repository</a></li>
+        <li><div><strong>Robot description · R1</strong><small>URDF, MJCF and USD models with a load-and-move check script</small></div><a data-link="description">Repository</a></li>
+        <li><div><strong>Fingertip sensor tools · R2</strong><small>Acquisition, module-level calibration and wrist-frame transform</small></div><a data-link="sensor">Repository</a></li>
+        <li><div><strong>Teleoperation · R2</strong><small>Leader–follower control with live hand and force-vector display</small></div><a data-link="teleop">Repository</a></li>
+        <li><div><strong>Learning code · R3</strong><small>Training, deployment and evaluation for the policies in the paper</small></div><a data-link="code">Repository</a></li>
+        <li><div><strong>Pretrained policies · R3</strong><small>Checkpoints for the task suite</small></div><a data-link="checkpoints">Download</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="sim">
+    <div class="wrap">
+      <div class="head"><h2>Simulation models</h2>
+        <p class="lead">One hand description, exported to the three formats most simulators read. The wrist frame and the three fingertip sensor frames are defined as in the paper.</p></div>
+      <div class="scroll"><table>
+        <thead><tr><th>Format</th><th>Use it with</th><th>Contents</th></tr></thead>
+        <tbody>
+          <tr><td class="id">URDF</td><td>ROS, PyBullet, Isaac Gym, general tooling</td><td>Links, joints, limits, inertias, visual and simplified collision meshes</td></tr>
+          <tr><td class="id">MJCF</td><td>MuJoCo</td><td>As above, plus position actuators and fingertip force sites</td></tr>
+          <tr><td class="id">USD</td><td>Isaac Sim, Isaac Lab</td><td>Articulation with drives and collision approximations</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout" style="margin-top:22px">
+        <p><strong>What the models are for.</strong> They describe the hand: kinematics, workspace, grasping, policy prototyping. They do not model the removal tasks. Hot-melt bonds, Blu-Tack and granular media are hard to simulate faithfully, so results on the task suite are reported on the real robot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="policy">
+    <div class="wrap">
+      <div class="head"><h2>Learning setup in the paper</h2>
+        <p class="lead">An Action Chunking Transformer fuses vision, joint state, fingertip pose and wrist-frame force, and predicts joint-displacement chunks. There is no state machine, contact threshold or hand-written force controller.</p></div>
+      <div class="two">
+        <div class="scroll"><table>
+          <thead><tr><th>Observation</th><th>Size</th></tr></thead>
+          <tbody>
+            <tr><td>RGB, two external and one wrist camera</td><td class="n">3 × 480 × 640</td></tr>
+            <tr><td>Joint positions and velocities</td><td class="n">24</td></tr>
+            <tr><td>Fingertip poses, wrist frame</td><td class="n">3 × 7 = 21</td></tr>
+            <tr><td>Fingertip forces, wrist frame</td><td class="n">3 × 3 = 9</td></tr>
+            <tr><td>Action: joint displacements</td><td class="n">12</td></tr>
+          </tbody>
+        </table></div>
+        <div class="scroll"><table>
+          <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Control rate</td><td class="n">15 Hz</td></tr>
+            <tr><td>Chunk predicted / executed</td><td class="n">100 / 50 steps</td></tr>
+            <tr><td>Demonstrations per task</td><td class="n">20</td></tr>
+            <tr><td>Training</td><td class="n">60,000 steps, batch 8</td></tr>
+            <tr><td>Inference latency</td><td class="n">23.5 ± 4.1 ms (RTX 2060)</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

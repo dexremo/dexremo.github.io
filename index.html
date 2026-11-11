@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DexRemo — a force-sensing hand for removal manipulation</title>
+<meta name="description" content="DexRemo is an open three-finger robotic hand with three-axis fingertip force sensing, and a nine-task real-robot suite for prying, peeling, scraping, wiping and digging.">
+<meta property="og:title" content="DexRemo — a force-sensing hand for removal manipulation">
+<meta property="og:description" content="A $200, 12-DoF hand with 62.5 N pullout strength and three-axis fingertip force sensing. Accepted to IEEE Transactions on Robotics (T-RO), 2026.">
+<meta property="og:image" content="assets/img/hero-turtle.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <div class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Dex<span>Remo</span></h1>
+        <p class="title">A Force-Sensing Hand Platform and Task Suite for Contact-Rich Removal Manipulation</p>
+        <p id="authors"></p>
+        <p id="affiliations"></p>
+        <p class="accepted">Accepted to IEEE Transactions on Robotics (T-RO), 2026</p>
+        <div class="btns">
+          <a class="btn primary" data-link="paper">Paper</a>
+          <a class="btn" data-link="video">Video</a>
+          <a class="btn" href="hardware.html">Hardware</a>
+          <a class="btn" href="software.html">Software</a>
+          <a class="btn" data-link="github">Code</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/img/hero-turtle.webp" alt="The DexRemo hand prying a glued barnacle model off a turtle-shell mockup" width="1132" height="1551">
+      </figure>
+    </div>
+    <ul class="logos" aria-label="Institutions">
+      <li><a href="https://www.york.ac.uk/" target="_blank" rel="noopener"><img src="assets/img/logos/york.png" alt="University of York" style="--h:50px"></a></li>
+      <li><a href="https://www.kcl.ac.uk/" target="_blank" rel="noopener"><img src="assets/img/logos/kcl.svg" alt="King's College London" style="--h:62px"></a></li>
+      <li><a href="https://www.ed.ac.uk/" target="_blank" rel="noopener"><img src="assets/img/logos/edinburgh.svg" alt="The University of Edinburgh" style="--h:46px"></a></li>
+      <li><a href="https://www.uni-jena.de/en" target="_blank" rel="noopener"><img src="assets/img/logos/jena.png" alt="Friedrich Schiller University Jena" style="--h:54px"></a></li>
+    </ul>
+  </div>
+
+  <!-- ============ THE HAND (black banner) ============ -->
+  <section class="band" id="hand">
+    <div class="wrap band-grid">
+      <img src="assets/img/hand.jpg" alt="The DexRemo hand: three identical four-joint fingers on a common base" width="669" height="990">
+      <div>
+        <h2>A three-finger hand built to push hard</h2>
+        <p class="lead">Three identical thumb-like fingers, twelve off-the-shelf servos, and optional three-axis force sensing in every fingertip.</p>
+        <dl class="facts">
+          <div><dt>$200</dt><dd>to build the 12-DoF hand; force sensing adds about $170 per fingertip</dd></div>
+          <div><dt>62.5 N</dt><dd>pullout strength, the highest among the hands compared in the paper</dd></div>
+          <div><dt>24% → 83%</dt><dd>task success once fingertip pose and force are expressed in one shared wrist frame</dd></div>
+        </dl>
+        <div class="btns"><a class="btn primary" href="hardware.html">Hardware</a><a class="btn" href="hardware.html#model" data-live-only>View in 3D</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HAND DESIGN ============ -->
+  <section id="design">
+    <div class="wrap">
+      <div class="head"><h2>Hand design</h2>
+        <p class="lead">Each finger has four joints: two flexion joints and a two-axis base. The three fingers are arranged radially, so together they reach a hemispherical workspace.</p></div>
+      <figure class="fig">
+        <img src="assets/img/design-poses.webp" alt="Three renders of the hand in different poses: fingers pitching about the proximal axis, fingers curled together, and fingers spread wide inside a dome-shaped workspace" loading="lazy" width="2400" height="776">
+      </figure>
+      <ul class="points">
+        <li><h3>Proximal pitch axis</h3><p>Each finger pitches from its base, so it can fold in towards the palm or open flat.</p></li>
+        <li><h3>Short distal link</h3><p>A short last link keeps the fingertip stiff when it pushes into a contact.</p></li>
+        <li><h3>Wide finger spread</h3><p>The fingers swing apart to cover a hemispherical reachable workspace.</p></li>
+      </ul>
+      <div class="btns"><a class="btn" href="hardware.html#joints">Joint layout and specifications</a></div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO ============ -->
+  <section id="video">
+    <div class="wrap">
+      <div class="head"><h2>Video</h2>
+        <p class="lead">Adhered, embedded, contaminated or buried targets cannot simply be grasped. The robot has to work an edge loose, keep pressure on a stain, or uncover what it cannot see.</p></div>
+      <button class="poster" data-video aria-label="Play the project video">
+        <img src="assets/img/setup.jpg" alt="" loading="lazy">
+        <span>Play the project video</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ FORCE FRAME DEMO ============ -->
+  <section id="force-frame">
+    <div class="wrap">
+      <div class="head"><h2>Key idea: force in the wrist frame</h2>
+        <p class="lead">A fingertip sensor measures force in its own frame, which turns as the finger bends. Move the finger: the contact force does not change, but the local reading does. Rotated into the wrist frame with forward kinematics, it stays put, and means the same thing for every finger.</p></div>
+
+      <div class="demo" id="force-demo">
+        <div>
+          <svg viewBox="0 0 400 340" role="img" aria-label="A planar finger attached to a wrist, with a contact force at the fingertip and two coordinate frames">
+            <defs>
+              <marker id="fd-ah-w" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="fd-ah-w" d="M0 0L10 5L0 10z"/></marker>
+              <marker id="fd-ah-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="fd-ah-s" d="M0 0L10 5L0 10z"/></marker>
+              <marker id="fd-ah-f" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path class="fd-ah-f" d="M0 0L10 5L0 10z"/></marker>
+            </defs>
+          </svg>
+          <div class="controls">
+            <label>Finger flexion <input id="fd-q" type="range" min="0" max="90" value="30"> <output id="fd-q-out"></output></label>
+            <label>Force direction <input id="fd-phi" type="range" min="-180" max="180" value="-150"> <output id="fd-phi-out"></output></label>
+            <button id="fd-play" type="button">Sweep the finger</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="frame s">
+            <h3>Fingertip (local) frame</h3>
+            <p>What the sensor reports. It changes with posture.</p>
+            <div class="meter" id="fd-sx">x <span><i></i></span><b></b></div>
+            <div class="meter" id="fd-sz">z <span><i></i></span><b></b></div>
+          </div>
+          <div class="frame w">
+            <h3>Wrist frame</h3>
+            <p>What the policy receives. It follows the physical force only.</p>
+            <div class="meter" id="fd-wx">x <span><i></i></span><b></b></div>
+            <div class="meter" id="fd-wz">z <span><i></i></span><b></b></div>
+          </div>
+          <p class="note">Planar illustration of the transform <span style="font-family:var(--mono)">f<sub>wrist</sub> = R(q) · f<sub>local</sub></span> with a fixed 20 N contact force. The real hand does this in 3D for three fingers, giving a 9-D force input.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="results">
+    <div class="wrap">
+      <div class="head"><h2>Results</h2>
+        <p class="lead">Six policies share the hand, the 20 demonstrations per task, the ACT backbone and the rollout protocol. Only the fingertip inputs change.</p></div>
+
+      <div class="two">
+        <div class="chart">
+          <h3>Success rate by fingertip input</h3>
+          <p>All rollouts on the six core tasks, pooled over three seeds. Every policy also receives three RGB views and joint states.</p>
+          <div class="vbars" role="img" aria-label="Success rate: no fingertip input 24%, local force 38%, pose 44%, wrist force 58%, local force plus pose 55%, pose plus wrist force 83%">
+            <div style="--v:24" title="No fingertip input: 24%"><b>24%</b></div>
+            <div style="--v:38" title="Local-frame force: 38%"><b>38%</b></div>
+            <div style="--v:44" title="Fingertip pose: 44%"><b>44%</b></div>
+            <div style="--v:58" title="Wrist-frame force: 58%"><b>58%</b></div>
+            <div style="--v:55" title="Local-frame force + pose: 55%"><b>55%</b></div>
+            <div class="hi" style="--v:83" title="Pose + wrist-frame force: 83%"><b>83%</b></div>
+          </div>
+          <div class="vlabels" aria-hidden="true">
+            <span>∅</span><span>R</span><span>P</span><span>W</span><span>R+P</span><span>P+W</span>
+          </div>
+          <p class="key">∅ vision and joints only · R local-frame force · P fingertip pose · W wrist-frame force</p>
+        </div>
+
+        <div class="chart">
+          <h3>Pullout strength, in newtons</h3>
+          <p>Peak force before slip or release in a quasi-static pull test at the middle phalanx. Other hands as cited in the paper.</p>
+          <div class="hbars" role="img" aria-label="Pullout strength comparison; DexRemo 62.5 newtons is the highest">
+            <div class="hi"><span>DexRemo</span><i style="--v:62.5" data-v="62.5"></i></div>
+            <div><span>Bauer et al.</span><i style="--v:37.4" data-v="37.4"></i></div>
+            <div><span>D'Manus</span><i style="--v:27.8" data-v="27.8"></i></div>
+            <div><span>Adult human hand</span><i style="--v:26.5" data-v="26.5"></i></div>
+            <div><span>LEAP-C Hand</span><i style="--v:21.5" data-v="21.5"></i></div>
+            <div><span>LEAP Hand</span><i style="--v:19.5" data-v="19.5"></i></div>
+            <div><span>Allegro Hand</span><i style="--v:8.5" data-v="8.5"></i></div>
+            <div><span>InMoov Hand</span><i style="--v:5.8" data-v="5.8"></i></div>
+          </div>
+        </div>
+      </div>
+
+<p class="note" style="margin-top:22px">Wrist-frame force beats local-frame force on all six core tasks, with and without fingertip pose. Three further scenarios (A5, B2, C2) were run with the full policy only: 8/10, 9/10 and 7/10 held-out successes. In total the hand ran 3,420 real-robot evaluation rollouts and more than 100 hours of logged operation, with 23 hardware interruptions.</p>
+    </div>
+  </section>
+
+  <!-- ============ TASKS ============ -->
+  <section id="tasks">
+    <div class="wrap">
+      <div class="head"><h2>Tasks</h2>
+        <p class="lead">Nine real-robot removal tasks in three families of constraint, each with a preparation protocol, a physical success criterion and held-out objects, poses and colours.</p></div>
+      <ul class="tasks" data-tasks></ul>
+      <div class="btns"><a class="btn" href="tasks.html">Protocols and success criteria</a></div>
+    </div>
+  </section>
+
+  <!-- ============ ROADMAP ============ -->
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="head"><h2>Release roadmap</h2>
+        <p class="lead">DexRemo opens in stages, hardware first. Each stage is released when someone outside the team has followed its documentation from start to finish.</p></div>
+      <ol class="roadmap" data-roadmap="short"></ol>
+      <div class="btns">
+        <a class="btn" href="roadmap.html">What is in each release</a>
+        <a class="btn" data-link="subscribe">Get notified</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CITATION ============ -->
+  <section id="cite">
+    <div class="wrap">
+      <div class="head"><h2>Citation</h2></div>
+      <div class="cite">
+        <button type="button" data-copy="#bibtex">Copy</button>
+<pre id="bibtex">@article{wang2026dexremo,
+  title   = {DexRemo: A Force-Sensing Hand Platform and Task Suite for
+             Contact-Rich Removal Manipulation},
+  author  = {Wang, Liman and Zhong, Hanyang and Sun, Zhaole and Cao, Wenting and
+             Jamil, Babar and Tyrrell, Andy and Luo, Shan and Zhu, Jihong},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2026}
+}</pre>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/force-demo.js"></script>
+</body>
+</html>

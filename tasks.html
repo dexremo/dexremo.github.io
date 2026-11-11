@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasks — DexRemo</title>
+<meta name="description" content="The nine DexRemo removal tasks: objects, preparation protocols, held-out conditions and success criteria.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <div class="wrap page-head">
+    <h1>Tasks</h1>
+    <p class="lead">Nine real-robot removal tasks in three families. Each has a preparation recipe you can repeat, held-out test conditions, and a success criterion you can measure.</p>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <ul class="tasks" data-tasks></ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head"><h2>Protocol</h2>
+        <p class="lead">Rollouts end at success or at 120 s. Six core tasks carry the full input ablation; A5, B2 and C2 are extension scenarios.</p></div>
+      <div class="scroll"><table>
+        <thead><tr><th>ID</th><th>Task</th><th>Preparation</th><th>Held-out</th><th>Success</th></tr></thead>
+        <tbody>
+          <tr><td class="id">A1</td><td>Barnacle model on a turtle shell</td><td>0.35 g hot-melt adhesive, wait 60 s</td><td>Unseen barnacle sizes, pose, colour; unseen shell</td><td>Detached and lifted ≥ 10 mm for 1 s, no damage</td></tr>
+          <tr><td class="id">A2</td><td>3D-printed part on a build plate</td><td>15 × 15 mm nano-adhesive pad, press 10 s</td><td>Triangular and quad prisms; ± 30° yaw</td><td>Detached with clearance held, no violent ejection</td></tr>
+          <tr><td class="id">A3</td><td>Blu-Tack on an acrylic plate</td><td>≈ 20 g patch, press 5 N for 5 s</td><td>Blue colour; ring and strip shapes; ± 50 mm placement</td><td>Residue ≤ 5% by area</td></tr>
+          <tr><td class="id">A4</td><td>Wood-ear model on a birch log</td><td>Hot-melt at the root, wait 60 s</td><td>Log rotated ± 45°; specimen ± 30 mm</td><td>Detached and lifted ≥ 10 mm for 1 s, no damage</td></tr>
+          <tr><td class="id">A5</td><td>Blu-Tack residue on the fingertip</td><td>Attach residue, randomise shape and pose</td><td>Clay; thin-sheet and thick-blob shapes</td><td>Fully removed by visual inspection</td></tr>
+          <tr><td class="id">B1</td><td>Marker stain on a ceramic plate</td><td>Draw stain in a 120 × 120 mm region; sponge wetted with 2 ml water</td><td>Unseen location, shape, colour</td><td>≥ 90% of the region cleaned</td></tr>
+          <tr><td class="id">B2</td><td>Ink mark on silicone skin</td><td>Draw mark, wait 30 s; cotton tip</td><td>Unseen location, shape, colour</td><td>≥ 90% of the region cleaned</td></tr>
+          <tr><td class="id">C1</td><td>Fossil model buried in sand</td><td>Bury at 15 mm, flatten the surface</td><td>Unseen fossils; depths 10 and 20 mm; sand camouflage</td><td>≥ 80% exposed, trench ≤ 20 mm deep</td></tr>
+          <tr><td class="id">C2</td><td>Clump embedded in cat litter</td><td>Embed and level the litter</td><td>Colour-matched clump; ± 60 mm pose</td><td>≥ 80% of the clump surface exposed</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note" style="margin-top:16px">Cleaned and exposed areas are measured by before/after pixel differencing in HSV space with a fixed threshold. "No damage" means no visible gouge or tear larger than 2 mm.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="callout">
+        <p><strong>Where to find the details.</strong> The task suite is how the hand and the force representation were evaluated. Objects, preparation steps, held-out conditions and all results are described in the paper. The open-source release covers the hand, the fingertip force sensor, the simulation models and the software.</p>
+      </div>
+      <div class="btns"><a class="btn primary" data-link="paper">Read the paper</a><a class="btn" href="hardware.html">Build the hand</a></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

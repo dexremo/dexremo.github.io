@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardware — DexRemo</title>
+<meta name="description" content="Build the DexRemo hand: specifications, files, bill of materials and assembly guide.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <div class="wrap page-head">
+    <h1>Hardware</h1>
+    <p class="lead">A 12-DoF, three-finger hand for about $200 in parts. Printed finger structures, aluminium joint housings, and twelve of the same hobby-grade serial bus servo.</p>
+    <nav class="toc" aria-label="On this page">
+      <span>On this page</span>
+      <a href="#model">3D model</a><a href="#specs">Specifications</a><a href="#joints">Joint layout</a><a href="#sensor">Force sensor</a><a href="#fingertips">Fingertips</a>
+      <a href="#downloads">Downloads</a><a href="#bom">Bill of materials</a><a href="#assembly">Assembly</a><a href="#leader">Leader device</a>
+    </nav>
+  </div>
+
+  <section id="model">
+    <div class="wrap">
+      <div class="head"><h2>3D model</h2>
+        <p class="lead" data-live-only>Open a model, then drag to rotate, scroll or pinch to zoom, and right-drag to pan.</p><p class="lead" data-still-only>Rendered views of the hand and its parts. The interactive 3D viewer opens shortly.</p></div>
+      <div class="model-wide" data-model-slot="full"></div>
+    </div>
+  </section>
+
+  <section id="specs">
+    <div class="wrap split">
+      <div>
+        <div class="head"><h2>Specifications</h2></div>
+        <div class="scroll"><table>
+          <tr><th>Layout</th><td>Three identical thumb-like fingers, arranged radially</td></tr>
+          <tr><th>Degrees of freedom</th><td class="n">12 (4 per finger)</td></tr>
+          <tr><th>Joints per finger</th><td>IP, MCP, and a two-axis CMC base</td></tr>
+          <tr><th>Finger length</th><td class="n">162 mm (links 62 / 50 / 49 mm)</td></tr>
+          <tr><th>Actuators</th><td>12 × Feetech STS3215, magnetic encoders</td></tr>
+          <tr><th>Servo loop</th><td class="n">200 Hz, &lt; 5 ms command latency</td></tr>
+          <tr><th>Transmission</th><td>Direct linkage</td></tr>
+          <tr><th>Mass</th><td class="n">≈ 1.8 kg</td></tr>
+          <tr><th>Pullout strength</th><td class="n">62.5 N</td></tr>
+          <tr><th>Fingertips</th><td>Interchangeable: rigid wedge, soft cleaning tip</td></tr>
+          <tr><th>Force sensing</th><td>Optional three-axis module per fingertip (release R2)</td></tr>
+          <tr><th>Cost</th><td class="n">≈ $200 hand, + ≈ $170 per sensing fingertip</td></tr>
+        </table></div>
+      </div>
+      <div>
+        <div data-model-slot="hand"></div>
+        <p class="note" style="margin-top:10px">The base hand works on its own for about $200. Force sensing is an add-on: each fingertip adapter takes either a plain tip or the sensing module below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="joints">
+    <div class="wrap">
+      <div class="head"><h2>Joint layout</h2>
+        <p class="lead">Every finger has the same four joints: an interphalangeal (IP) joint, a metacarpophalangeal (MCP) joint, and a compound carpometacarpal (CMC) joint with two axes, CMC1 and CMC2.</p></div>
+      <div class="two">
+        <figure class="fig"><img src="assets/img/design-kinematics.webp" alt="Kinematic diagram: three fingers, each with IP, MCP and a ball-joint-like CMC, meeting at the wrist" loading="lazy" width="1200" height="1039">
+          <figcaption>Kinematic layout of the three fingers</figcaption></figure>
+        <figure class="fig"><img src="assets/img/design-axes.webp" alt="Render of the hand with the IP, MCP, CMC1 and CMC2 rotation axes marked on one finger" loading="lazy" width="1354" height="1074">
+          <figcaption>Rotation axes on one finger</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="sensor">
+    <div class="wrap split">
+      <div>
+        <div class="head"><h2>Fingertip force sensor</h2><p class="lead">Optional add-on, part of release R2.</p></div>
+        <p>Each sensing fingertip carries three miniature S-type strain-gauge load cells, set in an equilateral triangle between two rigid plates. Their sum gives the normal force; a calibrated linear map of the three readings gives the two tangential components.</p>
+        <p>The fingertip tool mounts on the outer plate and is mechanically decoupled from the load cells, so swapping a rigid wedge for a soft cleaning tip needs no recalibration.</p>
+        <div class="scroll" style="margin-top:20px"><table>
+          <tr><th>Output</th><td>Three-axis force: normal and two tangential</td></tr>
+          <tr><th>Load cells</th><td class="n">3 × S-type, 0–5 kg each</td></tr>
+          <tr><th>Calibration fit</th><td class="n">R² &gt; 0.986 on every axis</td></tr>
+          <tr><th>Aggregate error</th><td class="n">0.349 N RMSE</td></tr>
+          <tr><th>No-load noise</th><td class="n">0.0034 N mean, 0.0129 N max (std)</td></tr>
+          <tr><th>Peak load seen in tasks</th><td class="n">63.1 N normal</td></tr>
+          <tr><th>Cost</th><td class="n">≈ $170 per fingertip</td></tr>
+        </table></div>
+      </div>
+      <div>
+        <div data-model-slot="sensor"></div>
+        <img src="assets/img/fingertip.jpg" alt="Rigid wedge fingertip mounted on the force-sensing module" loading="lazy" style="margin-top:20px">
+        <p class="note" style="margin-top:10px">Wedge-shaped rigid fingertip mounted on the sensing module.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fingertips">
+    <div class="wrap">
+      <div class="head"><h2>Fingertips</h2>
+        <p class="lead">Two interchangeable fingertips mount on the sensing module. Because the tip is mechanically decoupled from the load cells, swapping one for the other needs no recalibration.</p></div>
+      <div class="two">
+        <div data-model-slot="nail"></div>
+        <div data-model-slot="mushroom"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="downloads">
+    <div class="wrap">
+      <div class="head"><h2>Downloads</h2>
+        <p class="lead">Geometry is provided as neutral STEP and printable STL. Links go live with release R1.</p></div>
+      <div class="callout" style="margin-bottom:22px">
+        <p><strong>Licence.</strong> Hardware files (STEP, STL, drawings, bill of materials, assembly guide) are released under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>: free to build, modify and share for non-commercial use, with attribution and under the same licence. Code and simulation models are released under the MIT licence. For commercial use, contact the corresponding author.</p>
+      </div>
+      <ul class="dl">
+        <li><div><strong>Assembly STEP</strong><small>Full hand, single finger and fingertip sub-assemblies</small></div><a data-link="step">Download</a></li>
+        <li><div><strong>Printable STL set</strong><small>One file per part, with quantity, orientation and print settings</small></div><a data-link="stl">Download</a></li>
+        <li><div><strong>Machining drawings</strong><small>Dimensioned PDF drawings for the aluminium parts</small></div><a data-link="drawings">Download</a></li>
+        <li><div><strong>Bill of materials</strong><small>Every part with quantity, price and purchase links</small></div><a data-link="bom">Open</a></li>
+        <li><div><strong>Assembly guide</strong><small>Step-by-step, with photos and video</small></div><a data-link="buildGuide">Open</a></li>
+        <li><div><strong>Simulation models</strong><small>URDF, MJCF and USD — see <a href="software.html#sim" style="border:0;padding:0;font-weight:400;text-decoration:underline">Software</a></small></div><a data-link="description">Repository</a></li>
+        <li><div><strong>Minimal driver</strong><small>Servo ID setup, zero calibration, joint read and write in Python</small></div><a data-link="sdk">Repository</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="bom">
+    <div class="wrap">
+      <div class="head"><h2>Bill of materials</h2>
+        <p class="lead">The main groups are below. The full list with part numbers, prices and suppliers ships with R1.</p></div>
+      <div class="scroll"><table>
+        <thead><tr><th>Group</th><th>Item</th><th>Qty</th><th>How to get it</th></tr></thead>
+        <tbody>
+          <tr><td>Actuation</td><td>Feetech STS3215 serial bus servo</td><td class="n">12</td><td>Off the shelf</td></tr>
+          <tr><td>Structure</td><td>Finger links and palm</td><td class="n">—</td><td>3D printed from the STL set</td></tr>
+          <tr><td>Structure</td><td>Joint housings</td><td class="n">—</td><td>Machined aluminium, from STEP and drawings</td></tr>
+          <tr><td>Fingertips</td><td>Rigid wedge tips, soft cleaning tips</td><td class="n">3 + 3</td><td>3D printed; sponge or tissue wrap for cleaning</td></tr>
+          <tr><td>Electronics</td><td>Servo bus adapter, power supply, wiring</td><td class="n">—</td><td>Off the shelf</td></tr>
+          <tr><td>Sensing (optional)</td><td>Three-axis fingertip module: 3 miniature S-type load cells and acquisition board</td><td class="n">3</td><td>Release R2</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section id="assembly">
+    <div class="wrap">
+      <div class="head"><h2>Assembly</h2></div>
+      <ol class="steps">
+        <li><strong>Print and order</strong><span>Print the STL set, send the aluminium parts out for machining, order servos and electronics.</span></li>
+        <li><strong>Set servo IDs</strong><span>Give each of the twelve servos its bus ID with the driver's setup tool.</span></li>
+        <li><strong>Build one finger</strong><span>IP, MCP and the two-axis CMC base. Repeat three times; the fingers are identical.</span></li>
+        <li><strong>Mount fingers to the wrist</strong><span>Radial layout, then route and secure the bus cables.</span></li>
+        <li><strong>Fit the fingertips</strong><span>Wedge tips for prying and scraping, soft tips for wiping.</span></li>
+        <li><strong>Calibrate zero</strong><span>Run the zero-offset routine once, then the first-motion check.</span></li>
+      </ol>
+      <p class="note" style="margin-top:20px">The detailed guide, with torque values and photos of every step, is published with R1.</p>
+    </div>
+  </section>
+
+  <section id="leader">
+    <div class="wrap split">
+      <div>
+        <div class="head"><h2>Leader device</h2></div>
+        <p>Demonstrations are collected with a passive replica of the hand that has the same joint layout and link geometry. Its joint angles map one-to-one onto the follower after a per-session zero-offset calibration, and commands stream at 15 Hz.</p>
+        <p class="muted">Files for the leader are part of R1; the teleoperation software and live force display follow in R2.</p>
+      </div>
+      <div data-model-slot="controller"></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

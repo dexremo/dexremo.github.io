@@ -121,7 +121,7 @@
        <p class="cmp-note">Both clips play muted and loop. They are separate rollouts, so their lengths differ.</p>`);
     document.body.append(dlg);
     const frame = (id, title) =>
-      `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&playsinline=1&rel=0"
+      `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&playsinline=1&rel=0&enablejsapi=1"
          title="${title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     const shut = () => { $$(".cmp-player", dlg).forEach(n => (n.innerHTML = "")); if (dlg.open) dlg.close(); };
     grid.addEventListener("click", e => {
@@ -132,6 +132,11 @@
       $('[data-side="ok"]', dlg).innerHTML = frame(t.ok, `${t.id} successful rollout`);
       $('[data-side="fail"]', dlg).innerHTML = frame(t.fail, `${t.id} baseline failure mode`);
       dlg.showModal();
+      /* mute=1 in the address is not always honoured, so also tell each player to mute once it is up */
+      $$("iframe", dlg).forEach(fr => {
+        const hush = () => { try { fr.contentWindow.postMessage('{"event":"command","func":"mute","args":[]}', "*"); } catch (e) {} };
+        fr.addEventListener("load", () => [0, 400, 1000, 2000, 4000].forEach(ms => setTimeout(hush, ms)));
+      });
     });
     $(".cmp-close", dlg).addEventListener("click", shut);
     dlg.addEventListener("click", e => { if (e.target === dlg) shut(); });   // click on the backdrop

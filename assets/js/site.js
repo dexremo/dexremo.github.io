@@ -101,26 +101,41 @@
   const FAM = { A: "Adhesive detachment", B: "Surface cleaning", C: "Occluded retrieval" };
   const grid = $("[data-tasks]");
   if (grid) {
-    const clip = (t, k, label) => t[k]
-      ? `<button type="button" data-clip="${t[k]}" data-title="${t.id} ${t.name}, ${label.toLowerCase()}">${label}</button>` : "";
-    grid.innerHTML = C.tasks.map(t =>
+    const both = t => t.ok && t.fail;      // the comparison needs both clips
+    grid.innerHTML = C.tasks.map((t, i) =>
       `<li class="task">
          <div class="task-media"><img src="assets/img/${t.img}.jpg" alt="" loading="lazy" width="800" height="800"></div>
          <div class="task-body">
            <h3><span>${t.id}</span>${t.name}</h3>
            <p>${FAM[t.family]} · ${t.constraint}</p>
-           ${t.ok ? `<div class="clips">${clip(t, "ok", "Success")}${clip(t, "fail", "Failure")}</div>` : ""}</div>
+           ${both(t) ? `<div class="clips"><button type="button" data-compare="${i}">Success vs failure</button></div>` : ""}</div>
        </li>`).join("");
-    /* clips load from YouTube only when a visitor asks for one */
+
+    /* Side-by-side viewer. Both clips start together, muted and looping; nothing loads from YouTube until it opens. */
+    const dlg = el("dialog", { class: "compare", "aria-labelledby": "cmp-title" },
+      `<div class="cmp-head"><h2 id="cmp-title"></h2><button type="button" class="cmp-close">Close</button></div>
+       <div class="cmp-grid">
+         <figure><div class="cmp-player" data-side="ok"></div><figcaption class="ok">Success</figcaption></figure>
+         <figure><div class="cmp-player" data-side="fail"></div><figcaption class="fail">Failure</figcaption></figure>
+       </div>
+       <p class="cmp-note">Both clips play muted and loop. They are separate rollouts, so their lengths differ.</p>`);
+    document.body.append(dlg);
+    const frame = (id, title) =>
+      `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&playsinline=1&rel=0"
+         title="${title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    const shut = () => { $$(".cmp-player", dlg).forEach(n => (n.innerHTML = "")); if (dlg.open) dlg.close(); };
     grid.addEventListener("click", e => {
-      const b = e.target.closest("[data-clip]");
+      const b = e.target.closest("[data-compare]");
       if (!b) return;
-      const card = b.closest(".task");
-      $(".task-media", card).innerHTML =
-        `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.clip}?autoplay=1&rel=0" title="${b.dataset.title}"
-           allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-      $$("[data-clip]", card).forEach(x => x.toggleAttribute("aria-pressed", x === b));
+      const t = C.tasks[+b.dataset.compare];
+      $("#cmp-title", dlg).textContent = `${t.id} · ${t.name}`;
+      $('[data-side="ok"]', dlg).innerHTML = frame(t.ok, `${t.id} successful rollout`);
+      $('[data-side="fail"]', dlg).innerHTML = frame(t.fail, `${t.id} failed rollout`);
+      dlg.showModal();
     });
+    $(".cmp-close", dlg).addEventListener("click", shut);
+    dlg.addEventListener("click", e => { if (e.target === dlg) shut(); });   // click on the backdrop
+    dlg.addEventListener("close", shut);                                     // Esc key
   }
 
   /* text that only makes sense while interactive 3D is on, or only while it is off */

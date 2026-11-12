@@ -220,7 +220,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   border-radius: 7px; padding: 5px 12px; cursor: pointer; }
 .clips button::before { content: "▶"; font-size: 0.7em; margin-right: 7px; vertical-align: 1px; }
 .clips button:hover { color: var(--accent); border-color: var(--accent); }
-.clips button[aria-pressed] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .task-body { padding: 12px 16px 16px; }
 .task h3 span { color: var(--accent); margin-right: 6px; }
 .task p { color: var(--ink-2); margin: 4px 0 0; }
@@ -322,3 +321,21 @@ model-viewer.model-stage { height: auto; --poster-color: transparent; }
 .points { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 28px; }
 .points p { color: var(--ink-2); margin: 4px 0 0; }
 @media (max-width: 760px) { .points { grid-template-columns: 1fr; gap: 16px; } .fig { padding: 10px; } }
+
+/* ---------- success vs failure viewer ---------- */
+dialog.compare { width: min(1280px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px); overflow: auto;
+  padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); color: var(--ink); }
+dialog.compare::backdrop { background: rgba(0, 0, 0, 0.72); }
+.cmp-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+.cmp-close { flex: none; font-family: inherit; font-weight: 600; color: var(--ink); background: none; border: 1px solid var(--ink);
+  border-radius: 7px; padding: 5px 12px; cursor: pointer; }
+.cmp-close:hover { color: var(--accent); border-color: var(--accent); }
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cmp-player { aspect-ratio: 16 / 9; background: #000; border-radius: var(--radius); overflow: hidden; }
+.cmp-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+.cmp-grid figcaption { margin-top: 8px; font-weight: 700; }
+.cmp-grid figcaption::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; background: var(--ink-3); }
+.cmp-grid figcaption.ok::before { background: #2f9e44; }
+.cmp-grid figcaption.fail::before { background: #e03131; }
+.cmp-note { color: var(--ink-2); margin: 14px 0 0; max-width: none; }
+@media (max-width: 760px) { .cmp-grid { grid-template-columns: 1fr; } dialog.compare { padding: 14px; } }

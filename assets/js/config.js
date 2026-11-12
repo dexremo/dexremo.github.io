@@ -144,7 +144,7 @@ window.DEXREMO = {
     { id: "A5", family: "A", name: "Fingertip self-cleaning", constraint: "Blu-Tack adhesion", img: "a5", ok: "4nsJrMAWZws", fail: "fc2WWL7BxY4" },
     { id: "B1", family: "B", name: "Wiping marker stains from a ceramic plate", constraint: "Pigment on surface", img: "b1", ok: "_x-GmjfMkLw", fail: "yPktbzjZuuU" },
     { id: "B2", family: "B", name: "Wiping ink marks from silicone skin", constraint: "Pigment on surface", img: "b2", ok: "jyDpRY7INCE", fail: "drgyJwj_ONY" },
-    { id: "C1", family: "C", name: "Fossil excavation in sand", constraint: "Granular media", img: "c1", ok: null, fail: "RE2BoalE7xs" },
+    { id: "C1", family: "C", name: "Fossil excavation in sand", constraint: "Granular media", img: "c1", ok: "RE2BoalE7xs", fail: "ZVynj-IPTm0" },
     { id: "C2", family: "C", name: "Cat litter clump removal", constraint: "Granular media", img: "c2", ok: "5xvzpM_UJEc", fail: "6u8j3mEqveg" }
   ]
 };

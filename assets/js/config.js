@@ -135,7 +135,7 @@ window.DEXREMO = {
       items: ["Arm-mounted configuration", "Community build gallery", "Open call for new removal tasks"] }
   ],
 
-  /* ok / fail: YouTube ids of one successful and one failed rollout (null hides the button). */
+  /* ok / fail: YouTube ids of one successful rollout and one baseline failure mode (null hides the button). */
   tasks: [
     { id: "A1", family: "A", name: "Barnacle removal from a turtle shell", constraint: "Hot-melt adhesive", img: "a1", ok: "1PkCwWYd1Oo", fail: "ZRzwPyAbVP0" },
     { id: "A2", family: "A", name: "3D-printed part removal from a build plate", constraint: "Nano-adhesive film", img: "a2", ok: "mHo6blWWaE0", fail: "OKMSxTer-nI" },

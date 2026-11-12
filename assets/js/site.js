@@ -108,15 +108,15 @@
          <div class="task-body">
            <h3><span>${t.id}</span>${t.name}</h3>
            <p>${FAM[t.family]} · ${t.constraint}</p>
-           ${both(t) ? `<div class="clips"><button type="button" data-compare="${i}">Success vs failure</button></div>` : ""}</div>
+           ${both(t) ? `<div class="clips"><button type="button" data-compare="${i}">Success vs baseline failure</button></div>` : ""}</div>
        </li>`).join("");
 
     /* Side-by-side viewer. Both clips start together, muted and looping; nothing loads from YouTube until it opens. */
     const dlg = el("dialog", { class: "compare", "aria-labelledby": "cmp-title" },
       `<div class="cmp-head"><h2 id="cmp-title"></h2><button type="button" class="cmp-close">Close</button></div>
        <div class="cmp-grid">
-         <figure><div class="cmp-player" data-side="ok"></div><figcaption class="ok">Success</figcaption></figure>
-         <figure><div class="cmp-player" data-side="fail"></div><figcaption class="fail">Failure</figcaption></figure>
+         <figure><div class="cmp-player" data-side="ok"></div><figcaption class="ok">Success, full policy</figcaption></figure>
+         <figure><div class="cmp-player" data-side="fail"></div><figcaption class="fail">Baseline failure mode</figcaption></figure>
        </div>
        <p class="cmp-note">Both clips play muted and loop. They are separate rollouts, so their lengths differ.</p>`);
     document.body.append(dlg);
@@ -130,7 +130,7 @@
       const t = C.tasks[+b.dataset.compare];
       $("#cmp-title", dlg).textContent = `${t.id} · ${t.name}`;
       $('[data-side="ok"]', dlg).innerHTML = frame(t.ok, `${t.id} successful rollout`);
-      $('[data-side="fail"]', dlg).innerHTML = frame(t.fail, `${t.id} failed rollout`);
+      $('[data-side="fail"]', dlg).innerHTML = frame(t.fail, `${t.id} baseline failure mode`);
       dlg.showModal();
     });
     $(".cmp-close", dlg).addEventListener("click", shut);

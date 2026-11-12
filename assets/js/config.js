@@ -135,15 +135,16 @@ window.DEXREMO = {
       items: ["Arm-mounted configuration", "Community build gallery", "Open call for new removal tasks"] }
   ],
 
+  /* ok / fail: YouTube ids of one successful and one failed rollout (null hides the button). */
   tasks: [
-    { id: "A1", family: "A", name: "Barnacle removal from a turtle shell", constraint: "Hot-melt adhesive", img: "a1" },
-    { id: "A2", family: "A", name: "3D-printed part removal from a build plate", constraint: "Nano-adhesive film", img: "a2" },
-    { id: "A3", family: "A", name: "Blu-Tack removal from an acrylic plate", constraint: "Blu-Tack adhesion", img: "a3" },
-    { id: "A4", family: "A", name: "Wood-ear extraction from a tree log", constraint: "Hot-melt adhesive", img: "a4" },
-    { id: "A5", family: "A", name: "Fingertip self-cleaning", constraint: "Blu-Tack adhesion", img: "a5" },
-    { id: "B1", family: "B", name: "Wiping marker stains from a ceramic plate", constraint: "Pigment on surface", img: "b1" },
-    { id: "B2", family: "B", name: "Wiping ink marks from silicone skin", constraint: "Pigment on surface", img: "b2" },
-    { id: "C1", family: "C", name: "Fossil excavation in sand", constraint: "Granular media", img: "c1" },
-    { id: "C2", family: "C", name: "Cat litter clump removal", constraint: "Granular media", img: "c2" }
+    { id: "A1", family: "A", name: "Barnacle removal from a turtle shell", constraint: "Hot-melt adhesive", img: "a1", ok: "1PkCwWYd1Oo", fail: "ZRzwPyAbVP0" },
+    { id: "A2", family: "A", name: "3D-printed part removal from a build plate", constraint: "Nano-adhesive film", img: "a2", ok: "mHo6blWWaE0", fail: "OKMSxTer-nI" },
+    { id: "A3", family: "A", name: "Blu-Tack removal from an acrylic plate", constraint: "Blu-Tack adhesion", img: "a3", ok: "FWYAd0IGviE", fail: "4HzpC1T6-AQ" },
+    { id: "A4", family: "A", name: "Wood-ear extraction from a tree log", constraint: "Hot-melt adhesive", img: "a4", ok: "7TWhdvHnLzE", fail: "4e-QYmrzYQ4" },
+    { id: "A5", family: "A", name: "Fingertip self-cleaning", constraint: "Blu-Tack adhesion", img: "a5", ok: "4nsJrMAWZws", fail: "fc2WWL7BxY4" },
+    { id: "B1", family: "B", name: "Wiping marker stains from a ceramic plate", constraint: "Pigment on surface", img: "b1", ok: "_x-GmjfMkLw", fail: "yPktbzjZuuU" },
+    { id: "B2", family: "B", name: "Wiping ink marks from silicone skin", constraint: "Pigment on surface", img: "b2", ok: "jyDpRY7INCE", fail: "drgyJwj_ONY" },
+    { id: "C1", family: "C", name: "Fossil excavation in sand", constraint: "Granular media", img: "c1", ok: null, fail: "RE2BoalE7xs" },
+    { id: "C2", family: "C", name: "Cat litter clump removal", constraint: "Granular media", img: "c2", ok: "5xvzpM_UJEc", fail: "6u8j3mEqveg" }
   ]
 };

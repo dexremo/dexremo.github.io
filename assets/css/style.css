@@ -213,7 +213,14 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 /* ---------- tasks ---------- */
 .tasks { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .task { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.task img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.task-media { aspect-ratio: 4 / 3; background: #000; }
+.task-media img, .task-media iframe { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.clips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.clips button { font-family: inherit; font-weight: 600; color: var(--ink); background: none; border: 1px solid var(--ink);
+  border-radius: 7px; padding: 5px 12px; cursor: pointer; }
+.clips button::before { content: "▶"; font-size: 0.7em; margin-right: 7px; vertical-align: 1px; }
+.clips button:hover { color: var(--accent); border-color: var(--accent); }
+.clips button[aria-pressed] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 .task-body { padding: 12px 16px 16px; }
 .task h3 span { color: var(--accent); margin-right: 6px; }
 .task p { color: var(--ink-2); margin: 4px 0 0; }

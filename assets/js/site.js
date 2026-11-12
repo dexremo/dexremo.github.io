@@ -101,13 +101,26 @@
   const FAM = { A: "Adhesive detachment", B: "Surface cleaning", C: "Occluded retrieval" };
   const grid = $("[data-tasks]");
   if (grid) {
+    const clip = (t, k, label) => t[k]
+      ? `<button type="button" data-clip="${t[k]}" data-title="${t.id} ${t.name}, ${label.toLowerCase()}">${label}</button>` : "";
     grid.innerHTML = C.tasks.map(t =>
       `<li class="task">
-         <img src="assets/img/${t.img}.jpg" alt="" loading="lazy" width="800" height="800">
+         <div class="task-media"><img src="assets/img/${t.img}.jpg" alt="" loading="lazy" width="800" height="800"></div>
          <div class="task-body">
            <h3><span>${t.id}</span>${t.name}</h3>
-           <p>${FAM[t.family]} · ${t.constraint}</p></div>
+           <p>${FAM[t.family]} · ${t.constraint}</p>
+           ${t.ok ? `<div class="clips">${clip(t, "ok", "Success")}${clip(t, "fail", "Failure")}</div>` : ""}</div>
        </li>`).join("");
+    /* clips load from YouTube only when a visitor asks for one */
+    grid.addEventListener("click", e => {
+      const b = e.target.closest("[data-clip]");
+      if (!b) return;
+      const card = b.closest(".task");
+      $(".task-media", card).innerHTML =
+        `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.clip}?autoplay=1&rel=0" title="${b.dataset.title}"
+           allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      $$("[data-clip]", card).forEach(x => x.toggleAttribute("aria-pressed", x === b));
+    });
   }
 
   /* text that only makes sense while interactive 3D is on, or only while it is off */

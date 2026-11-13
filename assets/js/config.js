@@ -26,7 +26,7 @@ window.DEXREMO = {
   /* null  -> button is shown disabled with a "soon" tag
    * "url" -> button becomes a live link                              */
   links: {
-    paper: null,          // arXiv / IEEE Xplore URL
+    paper: "https://arxiv.org/abs/2611.15981",   // arXiv; add the IEEE Xplore DOI when it exists
     video: "https://youtu.be/yhkofu6_7R4",   // review-time video; replace with the final cut
     bilibili: null,
     github: null,         // GitHub organisation
@@ -56,7 +56,7 @@ window.DEXREMO = {
    * legend:      colour key shown under the viewer                                              */
 /* Interactive 3D on/off. A browser has to download a model to show it, so anything shown in 3D
      can be saved by a determined visitor. false = show the rendered still images only. */
-  modelsLive: false,
+  modelsLive: true,
 
   models: {
     full: {
@@ -118,10 +118,10 @@ window.DEXREMO = {
 
   /* status: "released" | "next" | "planned" */
   releases: [
-    { id: "R0", title: "Project site", status: "next",
+    { id: "R0", title: "Project site", status: "released",
       summary: "Paper, videos, results and this roadmap.",
       items: ["Paper and supplementary video", "Results and failure cases for all nine tasks", "Interactive force-frame demo"] },
-    { id: "R1", title: "Hardware", status: "planned",
+    { id: "R1", title: "Hardware", status: "next",
       summary: "Everything needed to build the hand and make it move.",
       items: ["STEP assemblies and printable STL files", "Machining drawings for the aluminium parts", "Bill of materials with purchase links", "Assembly guide and video", "Leader device for teleoperation", "URDF, MJCF and USD models", "Minimal Python driver: servo setup, zero calibration, joint read/write"] },
     { id: "R2", title: "Force sensing and teleoperation", status: "planned",

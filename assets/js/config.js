@@ -27,7 +27,7 @@ window.DEXREMO = {
    * "url" -> button becomes a live link                              */
   links: {
     paper: "https://arxiv.org/abs/2611.15981",   // arXiv; add the IEEE Xplore DOI when it exists
-    video: "https://youtu.be/ZXzh_WYf3B0",   // project video
+    video: "https://youtu.be/4ot1Yy7es_o",   // project video
     bilibili: null,
     github: null,         // GitHub organisation
     hardware: null,       // hardware repo (STEP / STL / drawings / BOM)
@@ -114,7 +114,7 @@ window.DEXREMO = {
   },
 
   /* YouTube id for the embedded project video (null hides the player). */
-  youtubeId: "ZXzh_WYf3B0",
+  youtubeId: "4ot1Yy7es_o",
 
   /* status: "released" | "next" | "planned" */
   releases: [

@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hardware — DexRemo</title>
 <meta name="description" content="Build the DexRemo hand: specifications, files, bill of materials and assembly guide.">
-<link rel="stylesheet" href="assets/css/style.css?v=202611130946">
+<link rel="stylesheet" href="assets/css/style.css?v=202611210010">
 </head>
 <body>
 <header id="site-header"></header>
 <main>
   <div class="wrap page-head">
     <h1>Hardware</h1>
-    <p class="lead">A 12-DoF, three-finger hand for about $200 in parts. Printed finger structures, aluminium joint housings, and twelve of the same hobby-grade serial bus servo.</p>
+    <p class="lead">A 12-DoF, three-finger hand for about $200 in parts. Every structural part is printed in PLA, and all twelve joints use the same hobby-grade serial bus servo.</p>
     <nav class="toc" aria-label="On this page">
       <span>On this page</span>
       <a href="#model">3D model</a><a href="#specs">Specifications</a><a href="#joints">Joint layout</a><a href="#sensor">Force sensor</a><a href="#fingertips">Fingertips</a>
@@ -105,18 +105,17 @@
   <section id="downloads">
     <div class="wrap">
       <div class="head"><h2>Downloads</h2>
-        <p class="lead">Geometry is provided as neutral STEP and printable STL. Links go live with release R1.</p></div>
+        <p class="lead">Geometry is provided as neutral STEP and printable STL, in the <a href="https://github.com/dexremo/dexremo" target="_blank" rel="noopener">GitHub repository</a>.</p></div>
       <div class="callout" style="margin-bottom:22px">
-        <p><strong>Licence.</strong> Hardware files (STEP, STL, drawings, bill of materials, assembly guide) are released under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>: free to build, modify and share for non-commercial use, with attribution and under the same licence. Code and simulation models are released under the MIT licence. For commercial use, contact the corresponding author.</p>
+        <p><strong>Licence.</strong> Hardware files (STEP, STL, meshes, bill of materials, assembly guide) are released under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>: free to build, modify and share for non-commercial use, with attribution and under the same licence. Code and simulation models are released under the MIT licence. For commercial use, contact the corresponding author.</p>
       </div>
       <ul class="dl">
-        <li><div><strong>Assembly STEP</strong><small>Full hand, single finger and fingertip sub-assemblies</small></div><a data-link="step">Download</a></li>
-        <li><div><strong>Printable STL set</strong><small>One file per part, with quantity, orientation and print settings</small></div><a data-link="stl">Download</a></li>
-        <li><div><strong>Machining drawings</strong><small>Dimensioned PDF drawings for the aluminium parts</small></div><a data-link="drawings">Download</a></li>
-        <li><div><strong>Bill of materials</strong><small>Every part with quantity, price and purchase links</small></div><a data-link="bom">Open</a></li>
-        <li><div><strong>Assembly guide</strong><small>Step-by-step, with photos and video</small></div><a data-link="buildGuide">Open</a></li>
-        <li><div><strong>Simulation models</strong><small>URDF, MJCF and USD — see <a href="software.html#sim" style="border:0;padding:0;font-weight:400;text-decoration:underline">Software</a></small></div><a data-link="description">Repository</a></li>
-        <li><div><strong>Minimal driver</strong><small>Servo ID setup, zero calibration, joint read and write in Python</small></div><a data-link="sdk">Repository</a></li>
+        <li><div><strong>Assembly STEP</strong><small>Full hand with Franka flange adapter and camera mount, every part a named body</small></div><a data-link="step">Download</a></li>
+        <li><div><strong>Printable STL set</strong><small>15 printed parts in PLA, one file per part; quantities in the parts list</small></div><a data-link="stl">Download</a></li>
+        <li><div><strong>Parts list</strong><small>Printed and bought parts with quantities; full bill of materials with R1.1</small></div><a data-link="bom">Open</a></li>
+        <li><div><strong>Assembly guide</strong><small>Step-by-step, with photos and video (R1.1)</small></div><a data-link="buildGuide">Open</a></li>
+        <li><div><strong>Simulation models</strong><small>URDF and MuJoCo MJCF — see <a href="software.html#sim" style="border:0;padding:0;font-weight:400;text-decoration:underline">Software</a></small></div><a data-link="description">Repository</a></li>
+        <li><div><strong>Minimal driver</strong><small>Servo ID setup, zero calibration, joint read and write in Python (R1.1)</small></div><a data-link="sdk">Repository</a></li>
       </ul>
     </div>
   </section>
@@ -124,16 +123,15 @@
   <section id="bom">
     <div class="wrap">
       <div class="head"><h2>Bill of materials</h2>
-        <p class="lead">The main groups are below. The full list with part numbers, prices and suppliers ships with R1.</p></div>
+        <p class="lead">The main groups are below. The printed parts and their quantities are in the <a href="https://github.com/dexremo/dexremo/tree/main/hardware#printed-parts" target="_blank" rel="noopener">parts list</a>; part numbers, prices and suppliers follow with R1.1.</p></div>
       <div class="scroll"><table>
         <thead><tr><th>Group</th><th>Item</th><th>Qty</th><th>How to get it</th></tr></thead>
         <tbody>
           <tr><td>Actuation</td><td>Feetech STS3215 serial bus servo</td><td class="n">12</td><td>Off the shelf</td></tr>
-          <tr><td>Structure</td><td>Finger links and palm</td><td class="n">—</td><td>3D printed from the STL set</td></tr>
-          <tr><td>Structure</td><td>Joint housings</td><td class="n">—</td><td>Machined aluminium, from STEP and drawings</td></tr>
+          <tr><td>Structure</td><td>Palm, joint brackets, finger links and flange adapter</td><td class="n">18</td><td>3D printed in PLA from the STL set</td></tr>
           <tr><td>Fingertips</td><td>Rigid wedge tips, soft cleaning tips</td><td class="n">3 + 3</td><td>3D printed; sponge or tissue wrap for cleaning</td></tr>
           <tr><td>Electronics</td><td>Servo bus adapter, power supply, wiring</td><td class="n">—</td><td>Off the shelf</td></tr>
-          <tr><td>Sensing (optional)</td><td>Three-axis fingertip module: 3 miniature S-type load cells and acquisition board</td><td class="n">3</td><td>Release R2</td></tr>
+          <tr><td>Sensing (optional)</td><td>Three-axis fingertip module: 3 miniature S-type load cells per fingertip, printed sensor plates, acquisition board</td><td class="n">3</td><td>Plates in the STL set; electronics with R2</td></tr>
         </tbody>
       </table></div>
     </div>
@@ -143,14 +141,14 @@
     <div class="wrap">
       <div class="head"><h2>Assembly</h2></div>
       <ol class="steps">
-        <li><strong>Print and order</strong><span>Print the STL set, send the aluminium parts out for machining, order servos and electronics.</span></li>
+        <li><strong>Print and order</strong><span>Print the STL set in PLA, then order the servos and electronics.</span></li>
         <li><strong>Set servo IDs</strong><span>Give each of the twelve servos its bus ID with the driver's setup tool.</span></li>
         <li><strong>Build one finger</strong><span>IP, MCP and the two-axis CMC base. Repeat three times; the fingers are identical.</span></li>
         <li><strong>Mount fingers to the wrist</strong><span>Radial layout, then route and secure the bus cables.</span></li>
         <li><strong>Fit the fingertips</strong><span>Wedge tips for prying and scraping, soft tips for wiping.</span></li>
         <li><strong>Calibrate zero</strong><span>Run the zero-offset routine once, then the first-motion check.</span></li>
       </ol>
-      <p class="note" style="margin-top:20px">The detailed guide, with torque values and photos of every step, is published with R1.</p>
+      <p class="note" style="margin-top:20px">The detailed guide, with photos of every step, is published with R1.1.</p>
     </div>
   </section>
 
@@ -159,14 +157,14 @@
       <div>
         <div class="head"><h2>Leader device</h2></div>
         <p>Demonstrations are collected with a passive replica of the hand that has the same joint layout and link geometry. Its joint angles map one-to-one onto the follower after a per-session zero-offset calibration, and commands stream at 15 Hz.</p>
-        <p class="muted">Files for the leader are part of R1; the teleoperation software and live force display follow in R2.</p>
+        <p class="muted">Files for the leader are part of R1.1; the teleoperation software and live force display follow in R2.</p>
       </div>
       <div data-model-slot="controller"></div>
     </div>
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="assets/js/config.js?v=202611130946"></script>
-<script src="assets/js/site.js?v=202611130946"></script>
+<script src="assets/js/config.js?v=202611210010"></script>
+<script src="assets/js/site.js?v=202611210010"></script>
 </body>
 </html>

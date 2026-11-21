@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software &amp; Simulation — DexRemo</title>
 <meta name="description" content="Driver, teleoperation, learning code and simulation models for the DexRemo hand.">
-<link rel="stylesheet" href="assets/css/style.css?v=202611130946">
+<link rel="stylesheet" href="assets/css/style.css?v=202611210010">
 </head>
 <body>
 <header id="site-header"></header>
@@ -23,8 +23,8 @@
     <div class="wrap">
       <div class="head"><h2>Packages</h2><p class="lead">All code and simulation models are released under the MIT licence.</p></div>
       <ul class="dl">
-        <li><div><strong>Minimal driver · R1</strong><small>Servo ID setup, zero calibration, joint read and write, first-motion demo</small></div><a data-link="sdk">Repository</a></li>
-        <li><div><strong>Robot description · R1</strong><small>URDF, MJCF and USD models with a load-and-move check script</small></div><a data-link="description">Repository</a></li>
+        <li><div><strong>Minimal driver · R1.1</strong><small>Servo ID setup, zero calibration, joint read and write, first-motion demo</small></div><a data-link="sdk">Repository</a></li>
+        <li><div><strong>Robot description · R1</strong><small>URDF and MuJoCo MJCF models, with the scripts that build them from the STEP</small></div><a data-link="description">Repository</a></li>
         <li><div><strong>Fingertip sensor tools · R2</strong><small>Acquisition, module-level calibration and wrist-frame transform</small></div><a data-link="sensor">Repository</a></li>
         <li><div><strong>Teleoperation · R2</strong><small>Leader–follower control with live hand and force-vector display</small></div><a data-link="teleop">Repository</a></li>
         <li><div><strong>Learning code · R3</strong><small>Training, deployment and evaluation for the policies in the paper</small></div><a data-link="code">Repository</a></li>
@@ -36,13 +36,13 @@
   <section id="sim">
     <div class="wrap">
       <div class="head"><h2>Simulation models</h2>
-        <p class="lead">One hand description, exported to the three formats most simulators read. The wrist frame and the three fingertip sensor frames are defined as in the paper.</p></div>
+        <p class="lead">One hand description, generated from the full-hand STEP. The zero pose matches the real hand's calibration pose, and the wrist frame sits on the Franka flange face. See the <a href="https://github.com/dexremo/dexremo/tree/main/sim" target="_blank" rel="noopener">sim README</a> for frames and joint signs.</p></div>
       <div class="scroll"><table>
         <thead><tr><th>Format</th><th>Use it with</th><th>Contents</th></tr></thead>
         <tbody>
           <tr><td class="id">URDF</td><td>ROS, PyBullet, Isaac Gym, general tooling</td><td>Links, joints, limits, inertias, visual and simplified collision meshes</td></tr>
-          <tr><td class="id">MJCF</td><td>MuJoCo</td><td>As above, plus position actuators and fingertip force sites</td></tr>
-          <tr><td class="id">USD</td><td>Isaac Sim, Isaac Lab</td><td>Articulation with drives and collision approximations</td></tr>
+          <tr><td class="id">MJCF</td><td>MuJoCo</td><td>As above, plus position actuators, three-axis fingertip force sensors and a demo scene</td></tr>
+          <tr><td class="id">USD</td><td>Isaac Sim, Isaac Lab</td><td>Planned for R1.1</td></tr>
         </tbody>
       </table></div>
       <div class="callout" style="margin-top:22px">
@@ -81,7 +81,7 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="assets/js/config.js?v=202611130946"></script>
-<script src="assets/js/site.js?v=202611130946"></script>
+<script src="assets/js/config.js?v=202611210010"></script>
+<script src="assets/js/site.js?v=202611210010"></script>
 </body>
 </html>

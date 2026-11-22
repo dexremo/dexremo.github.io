@@ -31,11 +31,11 @@ window.DEXREMO = {
     bilibili: null,
     github: "https://github.com/dexremo/dexremo",   // main repository
     hardware: "https://github.com/dexremo/dexremo/tree/main/hardware",
-    step: "https://github.com/dexremo/dexremo/releases/download/v1.0.0/dexremo_hand_step.zip",
-    stl: "https://github.com/dexremo/dexremo/releases/download/v1.0.0/dexremo_hand_stl.zip",
+    step: "https://github.com/dexremo/dexremo/releases/download/v1.1.0/dexremo_hand_step.zip",
+    stl: "https://github.com/dexremo/dexremo/releases/download/v1.1.0/dexremo_hand_stl.zip",
     drawings: null,       // direct download: machining drawings (PDF zip)
-    bom: "https://github.com/dexremo/dexremo/tree/main/hardware#printed-parts",   // parts list; full BOM later
-    buildGuide: null,     // assembly guide
+    bom: "https://github.com/dexremo/dexremo/blob/main/hardware/BOM.md",   // bill of materials
+    buildGuide: "https://github.com/dexremo/dexremo/blob/main/hardware/assembly/README.md",   // assembly guide
     sdk: null,            // minimal driver package
     description: "https://github.com/dexremo/dexremo/tree/main/sim",
     sensor: null,         // fingertip force sensor files
@@ -123,10 +123,10 @@ window.DEXREMO = {
       items: ["Paper and supplementary video", "Results and failure cases for all nine tasks", "Interactive force-frame demo"] },
     { id: "R1", title: "Hardware and simulation", status: "released",
       summary: "The hand's geometry and its simulation models.",
-      items: ["Full-hand STEP assembly", "Printable STL files with quantities", "Parts list", "URDF and MuJoCo (MJCF) models with force sensors"] },
+      items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions"] },
     { id: "R1.1", title: "Build kit", status: "next",
-      summary: "Everything else needed to build the hand and make it move.",
-      items: ["Full bill of materials with purchase links", "Assembly guide and video", "Leader device for teleoperation", "Minimal Python driver: servo setup, zero calibration, joint read/write", "USD model for Isaac Sim"] },
+      summary: "The leader device and the software to make the hand move.",
+      items: ["Assembly video", "Leader device for teleoperation", "Minimal Python driver: servo setup, zero calibration, joint read/write", "USD model for Isaac Sim"] },
     { id: "R2", title: "Force sensing and teleoperation", status: "planned",
       summary: "The three-axis fingertip sensor and the leader–follower stack.",
       items: ["Fingertip sensor files and wiring", "Calibration scripts and procedure", "Leader–follower teleoperation", "Live fingertip force visualisation"] },

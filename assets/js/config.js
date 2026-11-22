@@ -87,13 +87,11 @@ window.DEXREMO = {
       legend: [["#e03131", "S-type load cell (×3)"], ["#7950f2", "Mounting plate"]]
     },
     controller: {
-      title: "Leader device: a passive replica of the hand, worn on the operator's fingers",
-      file: "assets/models/dexremo_controller.glb", poster: "assets/img/model-controller.jpg",
-      orientation: "0deg 90deg 0deg", orbit: "35deg 72deg auto",
-      /* 0 joint brackets · 1 finger links · 2 joint units · 3 ring mount · 4 palm · 5 flange and handle · 6 finger rings */
-      colors: ["#12a594", "#f5c211", "#343a40", "#e64980", "#4c8eea", "#ced4da", "#f76707"],
-      legend: [["#f76707", "Finger ring"], ["#e64980", "Ring mount"], ["#12a594", "Joint bracket"], ["#f5c211", "Finger link"],
-               ["#343a40", "Joint unit"], ["#4c8eea", "Palm"], ["#ced4da", "Flange and handle"]]
+      title: "Leader device: the same hand with ring fingertips for the operator's fingers",
+      file: "assets/models/dexremo_leader.glb", poster: "assets/img/model-controller.jpg",
+      orientation: "0deg 90deg 0deg", orbit: "35deg 72deg 105%",
+      /* colours are set in the .glb itself (made by sim/tools/make_leader_glb.py) */
+      legend: [["#f76707", "Finger ring"], ["#12a594", "Joint bracket"], ["#f5c211", "Finger link"], ["#343a40", "Servo"], ["#4c8eea", "Palm"]]
     },
     nail: {
       title: "Rigid fingernail tip, for prying and scraping",
@@ -126,7 +124,7 @@ window.DEXREMO = {
       items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions", "Leader device: ring fingertip, parts list, assembly step and model"] },
     { id: "R1.1", title: "Build kit", status: "next",
       summary: "The software to make the hand move.",
-      items: ["Assembly video", "Minimal Python driver: servo setup, zero calibration, joint read/write", "USD model for Isaac Sim"] },
+      items: ["Minimal Python driver: servo setup, zero calibration, joint read/write", "USD model for Isaac Sim"] },
     { id: "R2", title: "Force sensing and teleoperation", status: "planned",
       summary: "The three-axis fingertip sensor and the leader–follower stack.",
       items: ["Fingertip sensor files and wiring", "Calibration scripts and procedure", "Leader–follower teleoperation", "Live fingertip force visualisation"] },

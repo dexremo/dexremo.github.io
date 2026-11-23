@@ -122,18 +122,9 @@ window.DEXREMO = {
     { id: "R1", title: "Hardware and simulation", status: "released",
       summary: "The hand's geometry and its simulation models.",
       items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions", "Leader device: ring fingertip, parts list, assembly step and model", "Force-sensor calibration method", "Documentation in English and Chinese"] },
-    { id: "R1.1", title: "Build kit", status: "next",
-      summary: "The software to make the hand move.",
-      items: ["Minimal Python driver: servo setup, zero calibration, joint read/write"] },
-    { id: "R2", title: "Force sensing and teleoperation", status: "planned",
-      summary: "The three-axis fingertip sensor and the leader–follower stack.",
-      items: ["Fingertip sensor files and wiring", "Leader–follower teleoperation", "Live fingertip force visualisation"] },
-    { id: "R3", title: "Learning code", status: "planned",
-      summary: "Train and deploy the policies from the paper.",
-      items: ["Training and deployment code", "Pretrained checkpoints", "Evaluation scripts for the six core tasks"] },
-    { id: "R4", title: "Ecosystem", status: "planned",
-      summary: "Arm integration, community builds and new removal tasks.",
-      items: ["Arm-mounted configuration", "Community build gallery", "Open call for new removal tasks"] }
+    { id: "R2", title: "Driver and teleoperation", status: "next",
+      summary: "The software to move the hand and to collect your own demonstrations.",
+      items: ["Python servo driver: servo ID setup, zero calibration, joint read/write", "Leader–follower teleoperation, in two versions: without force sensing, and with a force-sensor interface", "Force-sensor interface: plug in your own transmitter reader and the calibration from the R1 method", "Live fingertip force display", "Recording demonstrations for your own training data"] }
   ],
 
   /* ok / fail: YouTube ids of one successful rollout and one baseline failure mode (null hides the button). */

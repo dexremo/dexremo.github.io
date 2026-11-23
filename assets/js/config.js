@@ -38,7 +38,7 @@ window.DEXREMO = {
     buildGuide: "https://github.com/dexremo/dexremo/blob/main/hardware/assembly/README.md",   // assembly guide
     sdk: null,            // minimal driver package
     description: "https://github.com/dexremo/dexremo/tree/main/sim",
-    sensor: null,         // fingertip force sensor files
+    sensor: "https://github.com/dexremo/dexremo/blob/main/hardware/force_calibration.md",   // force-sensor calibration method
     teleop: null,         // teleoperation + force visualisation
     code: null,           // training / deployment code
     checkpoints: null,    // pretrained policies
@@ -121,13 +121,13 @@ window.DEXREMO = {
       items: ["Paper and supplementary video", "Results and failure cases for all nine tasks", "Interactive force-frame demo"] },
     { id: "R1", title: "Hardware and simulation", status: "released",
       summary: "The hand's geometry and its simulation models.",
-      items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions", "Leader device: ring fingertip, parts list, assembly step and model"] },
+      items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions", "Leader device: ring fingertip, parts list, assembly step and model", "Force-sensor calibration method", "Documentation in English and Chinese"] },
     { id: "R1.1", title: "Build kit", status: "next",
       summary: "The software to make the hand move.",
       items: ["Minimal Python driver: servo setup, zero calibration, joint read/write"] },
     { id: "R2", title: "Force sensing and teleoperation", status: "planned",
       summary: "The three-axis fingertip sensor and the leader–follower stack.",
-      items: ["Fingertip sensor files and wiring", "Force calibration method (scripts depend on your transmitter, so they are not included)", "Leader–follower teleoperation", "Live fingertip force visualisation"] },
+      items: ["Fingertip sensor files and wiring", "Leader–follower teleoperation", "Live fingertip force visualisation"] },
     { id: "R3", title: "Learning code", status: "planned",
       summary: "Train and deploy the policies from the paper.",
       items: ["Training and deployment code", "Pretrained checkpoints", "Evaluation scripts for the six core tasks"] },

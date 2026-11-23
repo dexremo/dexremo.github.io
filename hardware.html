@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hardware — DexRemo</title>
 <meta name="description" content="Build the DexRemo hand: specifications, files, bill of materials and assembly guide.">
-<link rel="stylesheet" href="assets/css/style.css?v=202611221800">
+<link rel="stylesheet" href="assets/css/style.css?v=202611232100">
 </head>
 <body>
 <header id="site-header"></header>
@@ -43,7 +43,7 @@
           <tr><th>Mass</th><td class="n">≈ 1.8 kg</td></tr>
           <tr><th>Pullout strength</th><td class="n">62.5 N</td></tr>
           <tr><th>Fingertips</th><td>Interchangeable: rigid wedge, soft cleaning tip</td></tr>
-          <tr><th>Force sensing</th><td>Optional three-axis module per fingertip (release R2)</td></tr>
+          <tr><th>Force sensing</th><td>Optional three-axis module per fingertip</td></tr>
           <tr><th>Cost</th><td class="n">≈ $200 hand, + ≈ $170 per sensing fingertip</td></tr>
         </table></div>
       </div>
@@ -70,9 +70,10 @@
   <section id="sensor">
     <div class="wrap split">
       <div>
-        <div class="head"><h2>Fingertip force sensor</h2><p class="lead">Optional add-on, part of release R2.</p></div>
+        <div class="head"><h2>Fingertip force sensor</h2><p class="lead">Optional add-on. The parts and the calibration method are released.</p></div>
         <p>Each sensing fingertip carries three miniature S-type strain-gauge load cells, set in an equilateral triangle between two rigid plates. Their sum gives the normal force; a calibrated linear map of the three readings gives the two tangential components.</p>
         <p>The fingertip tool mounts on the outer plate and is mechanically decoupled from the load cells, so swapping a rigid wedge for a soft cleaning tip needs no recalibration.</p>
+        <p>The <a href="https://github.com/dexremo/dexremo/blob/main/hardware/force_calibration.md" target="_blank" rel="noopener">calibration method</a> covers labelling and wiring the load cells, loading each axis with weights, and fitting the linear map. Acquisition code depends on your load-cell transmitter, so it is not included.</p>
         <div class="scroll" style="margin-top:20px"><table>
           <tr><th>Output</th><td>Three-axis force: normal and two tangential</td></tr>
           <tr><th>Load cells</th><td class="n">3 × S-type, 0–5 kg each</td></tr>
@@ -113,7 +114,8 @@
         <li><div><strong>Assembly STEP</strong><small>Three versions (force-sensing, no sensor, mushroom tips), plus assembly files with every screw and nut</small></div><a data-link="step">Download</a></li>
         <li><div><strong>Printable STL set</strong><small>16 printed parts in PLA, one file per part; quantities in the hardware README</small></div><a data-link="stl">Download</a></li>
         <li><div><strong>Bill of materials</strong><small>Bought parts with purchase links, and fastener counts</small></div><a data-link="bom">Open</a></li>
-        <li><div><strong>Assembly guide</strong><small>17 illustrated steps, from one finger to the full hand</small></div><a data-link="buildGuide">Open</a></li>
+        <li><div><strong>Assembly guide</strong><small>18 illustrated steps, from one finger to the full hand (English and Chinese)</small></div><a data-link="buildGuide">Open</a></li>
+        <li><div><strong>Force-sensor calibration</strong><small>Method for calibrating each fingertip sensor with weights</small></div><a href="https://github.com/dexremo/dexremo/blob/main/hardware/force_calibration.md" target="_blank" rel="noopener">Open</a></li>
         <li><div><strong>Simulation models</strong><small>URDF and MuJoCo MJCF — see <a href="software.html#sim" style="border:0;padding:0;font-weight:400;text-decoration:underline">Software</a></small></div><a data-link="description">Repository</a></li>
         <li><div><strong>Minimal driver</strong><small>Servo ID setup, zero calibration, joint read and write in Python (R1.1)</small></div><a data-link="sdk">Repository</a></li>
       </ul>
@@ -165,7 +167,7 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="assets/js/config.js?v=202611221800"></script>
-<script src="assets/js/site.js?v=202611221800"></script>
+<script src="assets/js/config.js?v=202611232100"></script>
+<script src="assets/js/site.js?v=202611232100"></script>
 </body>
 </html>

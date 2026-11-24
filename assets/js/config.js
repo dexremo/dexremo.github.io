@@ -14,10 +14,10 @@ window.DEXREMO = {
     { name: "Wenting Cao", aff: "3", email: ["wenting.cao", "uni-jena.de"] },
     { name: "Babar Jamil", aff: "1", url: "https://www.york.ac.uk/physics-engineering-technology/people/babarjamil/", email: ["babar.jamil", "york.ac.uk"] },
     { name: "Andy Tyrrell", aff: "1", url: "https://www.york.ac.uk/physics-engineering-technology/people/andy_tyrrell/", email: ["andy.tyrrell", "york.ac.uk"] },
-    { name: "Shan Luo", aff: "4", url: "https://shanluo.github.io/", email: ["shan.luo", "kcl.ac.uk"] },
+    { name: "Shan Luo", aff: "4", url: "https://shanluo.github.io/" },
     { name: "Jihong Zhu", aff: "1", mark: "*", url: "https://jihong-zhu.github.io/", email: ["jihong.zhu", "york.ac.uk"] }
   ],
-  affiliations: ["University of York", "University of Edinburgh", "Friedrich Schiller University Jena", "King's College London"],
+  affiliations: ["University of York", "The University of Hong Kong", "Friedrich Schiller University Jena", "University of Oxford"],
   /* email is stored as [user, domain] and joined in the browser, so the address is not plain text in the source */
   authorNote: "† Equal contribution · * Corresponding author",
 

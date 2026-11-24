@@ -8,16 +8,16 @@ window.DEXREMO = {
   /* aff: index into `affiliations` (1-based), e.g. aff: "1" or "1,2". Leave out until confirmed.
    * mark: "†" equal contribution, "*" corresponding author. */
   authors: [
-    { name: "Liman Wang", aff: "1", mark: "†", url: "https://limanwang.github.io/#/", email: ["liman.wang", "york.ac.uk"] },
-    { name: "Hanyang Zhong", aff: "1", mark: "†", url: "https://hanyangzhong.github.io/", email: ["hanyang.zhong", "york.ac.uk"] },
-    { name: "Sun Zhaole", aff: "2", url: "https://sunzhaole.github.io/", email: ["szlhszt", "outlook.com"] },
-    { name: "Wenting Cao", aff: "3", email: ["wenting.cao", "uni-jena.de"] },
+    { name: "Liman Wang", aff: "1", mark: "†", url: "https://limanwang.github.io/#/", email: ["liman.wang", "outlook.com"] },
+    { name: "Hanyang Zhong", aff: "1", mark: "†", url: "https://hanyangzhong.github.io/", email: ["hanyang.zhong", "outlook.com"] },
+    { name: "Zhaole Sun", aff: "3", url: "https://sunzhaole.github.io/", email: ["szlhszt", "outlook.com"] },
+    { name: "Wenting Cao", aff: "4", email: ["wenting.cao", "uni-jena.de"] },
     { name: "Babar Jamil", aff: "1", url: "https://www.york.ac.uk/physics-engineering-technology/people/babarjamil/", email: ["babar.jamil", "york.ac.uk"] },
     { name: "Andy Tyrrell", aff: "1", url: "https://www.york.ac.uk/physics-engineering-technology/people/andy_tyrrell/", email: ["andy.tyrrell", "york.ac.uk"] },
-    { name: "Shan Luo", aff: "4", url: "https://shanluo.github.io/" },
+    { name: "Shan Luo", aff: "2", url: "https://shanluo.github.io/", email: ["shan.luo", "cs.ox.ac.uk"] },
     { name: "Jihong Zhu", aff: "1", mark: "*", url: "https://jihong-zhu.github.io/", email: ["jihong.zhu", "york.ac.uk"] }
   ],
-  affiliations: ["University of York", "The University of Hong Kong", "Friedrich Schiller University Jena", "University of Oxford"],
+  affiliations: ["University of York", "University of Oxford", "The University of Hong Kong", "Friedrich Schiller University Jena"],
   /* email is stored as [user, domain] and joined in the browser, so the address is not plain text in the source */
   authorNote: "† Equal contribution · * Corresponding author",
 

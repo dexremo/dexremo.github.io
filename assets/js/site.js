@@ -62,7 +62,7 @@
       const af = $("#affiliations");
       const numbered = C.authors.some(a => a.aff);   // number affiliations only once authors are mapped to them
       if (af) af.innerHTML =
-        C.affiliations.map((a, i) => (numbered ? `<sup>${i + 1}</sup>` : "") + a).join(numbered ? " &nbsp; " : " · ") +
+        C.affiliations.map((a, i) => `<span class="author">` + (numbered ? `<sup>${i + 1}</sup>` : "") + a + `</span>`).join(numbered ? " &nbsp; " : " · ") +
         (C.authorNote ? `<br>${C.authorNote}` : "");
     } else au.remove();
   }

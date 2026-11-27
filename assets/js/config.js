@@ -36,10 +36,10 @@ window.DEXREMO = {
     drawings: null,       // direct download: machining drawings (PDF zip)
     bom: "https://github.com/dexremo/dexremo/blob/main/hardware/BOM.md",   // bill of materials
     buildGuide: "https://github.com/dexremo/dexremo/blob/main/hardware/assembly/README.md",   // assembly guide
-    sdk: null,            // minimal driver package
+    sdk: "https://github.com/dexremo/dexremo/tree/main/teleop",   // driver package
     description: "https://github.com/dexremo/dexremo/tree/main/sim",
     sensor: "https://github.com/dexremo/dexremo/blob/main/hardware/force_calibration.md",   // force-sensor calibration method
-    teleop: null,         // teleoperation + force visualisation
+    teleop: "https://github.com/dexremo/dexremo/tree/main/teleop",   // teleoperation, force display and recording
     code: null,           // training / deployment code
     checkpoints: null,    // pretrained policies
     discord: null,
@@ -122,7 +122,7 @@ window.DEXREMO = {
     { id: "R1", title: "Hardware and simulation", status: "released",
       summary: "The hand's geometry and its simulation models.",
       items: ["STEP for three fingertip versions: force-sensing, no sensor, mushroom", "Printable STL files with quantities", "Bill of materials with purchase links", "Step-by-step assembly guide with every screw", "URDF and MuJoCo (MJCF) models of all three versions", "Leader device: ring fingertip, parts list, assembly step and model", "Force-sensor calibration method", "Documentation in English and Chinese"] },
-    { id: "R2", title: "Driver and teleoperation", status: "next",
+    { id: "R2", title: "Driver and teleoperation", status: "released",
       summary: "The software to move the hand and to collect your own demonstrations.",
       items: ["Python servo driver: servo ID setup, zero calibration, joint read/write", "Leader–follower teleoperation, in two versions: without force sensing, and with a force-sensor interface", "Force-sensor interface: plug in your own transmitter reader and the calibration from the R1 method", "Live fingertip force display", "Recording demonstrations for your own training data"] }
   ],

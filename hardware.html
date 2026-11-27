@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hardware — DexRemo</title>
 <meta name="description" content="Build the DexRemo hand: specifications, files, bill of materials and assembly guide.">
-<link rel="stylesheet" href="assets/css/style.css?v=202611241410">
+<link rel="stylesheet" href="assets/css/style.css?v=202611272030">
 </head>
 <body>
 <header id="site-header"></header>
@@ -148,7 +148,7 @@
         <li><strong>Build one finger</strong><span>From the CMC1 housing out to the fingertip: nuts, servo, then screws at each joint. Repeat three times; only the CMC1 housing and the nail differ.</span></li>
         <li><strong>Fit the fingertips</strong><span>Force-sensing wedge tips, plain wedge tips, or mushroom tips for a sponge or wipe.</span></li>
         <li><strong>Mount fingers to the palm</strong><span>Four M3 screws per finger, then the connector, the flange adapter and the camera mount.</span></li>
-        <li><strong>Calibrate zero</strong><span>Run the zero-offset routine once, then the first-motion check.</span></li>
+        <li><strong>Calibrate zero</strong><span>Run the zero-calibration script once, then check each joint's direction with the live monitor.</span></li>
       </ol>
       <p class="note" style="margin-top:20px">The <a href="https://github.com/dexremo/dexremo/blob/main/hardware/assembly/README.md" target="_blank" rel="noopener">assembly guide</a> shows every step, with the screws and nuts it needs.</p>
     </div>
@@ -160,14 +160,14 @@
         <div class="head"><h2>Leader device</h2></div>
         <p>Demonstrations are collected with a passive replica of the hand that has the same joint layout and link geometry. Its joint angles map one-to-one onto the follower after a per-session zero-offset calibration, and commands stream at 15 Hz.</p>
         <p>The leader is built from the same parts as the hand, with 7.4 V servos and a ring fingertip for the operator's finger; mount it on a stand of your choice. See step 13 of the <a href="https://github.com/dexremo/dexremo/blob/main/hardware/assembly/README.md#step-13-leader-device-ring-fingertip" target="_blank" rel="noopener">assembly guide</a> and the leader section of the <a href="https://github.com/dexremo/dexremo/blob/main/hardware/BOM.md#leader-device" target="_blank" rel="noopener">bill of materials</a>.</p>
-        <p class="muted">The teleoperation software and live force display follow in R2.</p>
+        <p class="muted">The <a href="https://github.com/dexremo/dexremo/tree/main/teleop" target="_blank" rel="noopener">teleoperation software</a> calibrates both devices, runs leader–follower control with a live hand and force display, and records demonstrations as a LeRobot dataset.</p>
       </div>
       <div data-model-slot="controller"></div>
     </div>
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="assets/js/config.js?v=202611241410"></script>
-<script src="assets/js/site.js?v=202611241410"></script>
+<script src="assets/js/config.js?v=202611272030"></script>
+<script src="assets/js/site.js?v=202611272030"></script>
 </body>
 </html>
